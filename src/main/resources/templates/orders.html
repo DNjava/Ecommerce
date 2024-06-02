@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<head>
+    <title>Orders</title>
+</head>
+<body>
+<div th:fragment="content">
+    <h1 class="mt-4 mb-3">Your Orders</h1>
+    <div th:each="order : ${orders}">
+        <h2>Order #<span th:text="${order.id}">Order ID</span></h2>
+        <div th:each="product : ${order.products}" class="card mb-4" style="width: 18rem;">
+            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${product.name}">Product Name</h5>
+                <p class="card-text" th:text="${product.description}">Product Description</p>
+                <p class="card-text" th:text="${product.price}">Product Price</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
